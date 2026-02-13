@@ -2,159 +2,145 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<title>CPD – File Classificato</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Distretto 21 – Comunicazione Riservata</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
 body {
     margin: 0;
-    background: #020617;
-    color: #93c5fd;
-    font-family: 'Orbitron', sans-serif;
-    overflow: hidden;
+    background: linear-gradient(180deg, #0a0f1c, #111827);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    overflow-x: hidden;
+    text-align: center;
 }
 
-/* SIRENA BLU/ROSSA */
-.siren {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(120deg, rgba(37,99,235,0.08), rgba(220,38,38,0.08));
-    animation: siren 6s infinite alternate;
-    z-index: 1;
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
 }
-@keyframes siren { 0% {opacity:0.04;} 100% {opacity:0.12;} }
 
-/* INTRO CLASSIFICATO */
-#intro {
-    position: fixed; inset:0;
-    background:#000; display:flex; flex-direction:column; justify-content:center; align-items:center;
-    z-index:10; animation: fadeOut 2s ease forwards; animation-delay:4s;
-}
-#intro h1 { color:#dc2626; letter-spacing:4px; font-size:2.4em; }
-#intro p { opacity:0.7; }
-@keyframes fadeOut { to{ opacity:0; visibility:hidden; } }
-
-/* BADGE */
-.badge {
-    width: 140px;
-    margin: 30px auto 10px;
+h1 {
+    font-size: 3em;
+    letter-spacing: 3px;
     opacity: 0;
-    animation: badgeIn 2.5s ease forwards;
-    animation-delay:3s;
-    filter: drop-shadow(0 0 20px rgba(59,130,246,0.4));
-}
-@keyframes badgeIn {
-    0% { transform: scale(0.6) rotate(-10deg); opacity:0; }
-    60% { transform: scale(1.05) rotate(2deg); opacity:1; }
-    100% { transform: scale(1) rotate(0); opacity:1; }
+    animation: fadeIn 2s forwards;
 }
 
-/* TIMBRO APPROVATO */
-.stamp {
-    width: 180px;
-    margin: 15px auto;
+h2 {
+    font-weight: 300;
     opacity: 0;
-    animation: stampIn 2s ease forwards;
-    animation-delay:5s;
-    filter: drop-shadow(0 0 20px rgba(220,38,38,0.5));
-}
-@keyframes stampIn {
-    0% { transform: scale(0.5) rotate(-20deg); opacity:0; }
-    60% { transform: scale(1.1) rotate(5deg); opacity:1; }
-    100% { transform: scale(1) rotate(0); opacity:1; }
+    animation: fadeIn 3s forwards;
+    animation-delay: 1s;
 }
 
-/* CONTENUTO */
-.container {
-    position: relative; z-index:2; text-align:center; padding:70px 20px; max-width:900px; margin:auto;
+button {
+    margin-top: 30px;
+    padding: 15px 35px;
+    background-color: #1f2937;
+    border: none;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.3s;
 }
-h1 { font-size:2em; letter-spacing:2px; text-transform:uppercase; margin-bottom:5px; }
-h2 { font-weight:400; opacity:0.7; margin-bottom:30px; }
-#typing { font-size:1.4em; min-height:1.5em; margin-bottom:40px; }
 
-/* CARD */
-.card { display:inline-block; margin:20px; }
-.card img { width:280px; border-radius:6px; filter: grayscale(65%) contrast(1.1); box-shadow: 0 0 25px rgba(59,130,246,0.25);}
-button { margin-top:15px; padding:10px 18px; background:transparent; border:1px solid #3b82f6; color:#93c5fd; font-family:'Orbitron',sans-serif; cursor:pointer; letter-spacing:1px;}
-button:hover { background: rgba(59,130,246,0.15); }
+button:hover {
+    background-color: #374151;
+}
 
-.footer { margin-top:50px; opacity:0.6; font-size:0.9em; }
+img {
+    width: 300px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+audio {
+    margin-top: 20px;
+}
+
+.fade {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    padding: 40px;
+    font-size: 1.3em;
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+}
 </style>
 </head>
 
 <body>
 
-<div class="siren"></div>
-
 <!-- INTRO -->
-<div id="intro">
-    <h1>FILE CLASSIFICATO</h1>
-    <p>Accesso riservato – CPD</p>
-</div>
+<section id="intro">
+    <h1>Distretto 21</h1>
+    <h2>Comunicazione Riservata per Elisa</h2>
+    <button onclick="nextSection('alvinSection')">Apri il Fascicolo</button>
+</section>
 
-<!-- AUDIO -->
-<audio id="olinsky" src="alvin.ogg"></audio>
-<audio id="platt" src="platt.m4a"></audio>
+<!-- ALVIN -->
+<section id="alvinSection" class="hidden">
+    <h1>Messaggio Speciale</h1>
+    <h2>Dalla voce italiana di Alvin Olinsky</h2>
 
-<div class="container">
+    <!-- PUOI CAMBIARE IMMAGINE QUI -->
+    <img src="alvin.jpg">
 
-    <!-- BADGE CPD -->
-    <img src="badge.png" alt="Chicago Police Department" class="badge">
+    <audio controls>
+        <source src="alvin.ogg" type="audio/mpeg">
+    </audio>
 
+    <button onclick="nextSection('plattSection')">Continua</button>
+</section>
 
-    <h1>DISTRETTO 21</h1>
-    <h2>Chicago Police Department</h2>
+<!-- PLATT -->
+<section id="plattSection" class="hidden">
+    <h1>La Scrivania della Sergente</h1>
+    <h2>Un messaggio dalla voce italiana della Sgt. Platt</h2>
 
-    <div id="typing"></div>
+    <!-- PUOI CAMBIARE IMMAGINE QUI -->
+    <img src="platt.jpg" height="300px">
 
-    <div class="card">
-        <img src="alvin.webp" alt="Detective Olinsky">
-        <br>
-        <button onclick="playAudio('olinsky')">Riproduci messaggio</button>
-    </div>
+    <audio controls>
+        <source src="platt.m4a" type="audio/mpeg">
+    </audio>
 
-    <div class="card">
-        <img src="platt.jpg" alt="Sgt Platt">
-        <br>
-        <button onclick="playAudio('platt')">Riproduci messaggio</button>
-    </div>
+    <button onclick="nextSection('finalSection')">Chiudi il Fascicolo</button>
+</section>
 
-    <div class="footer">
-        Comunicazione interna – Distretto 21<br>
+<!-- FINALE -->
+<section id="finalSection" class="hidden">
+    <footer>
         Buon 18° Compleanno ❤️
-    </div>
-</div>
+    </footer>
+</section>
 
 <script>
-/* RADIO */
-const radio = document.getElementById("radio");
-radio.volume = 0.25;
-
-window.onload = () => {
-    radio.play().catch(()=>{});
-    setTimeout(() => radio.pause(), 1200);
-    setTimeout(typeWriter, 1800);
-};
-
-/* TYPING */
-const text = "COMUNICAZIONE UFFICIALE — COMPLEANNO RISERVATO";
-let i=0;
-const typing=document.getElementById("typing");
-
-function typeWriter(){
-    if(i<text.length){
-        typing.textContent+=text.charAt(i);
-        i++;
-        setTimeout(typeWriter,60);
-    }
+function nextSection(id) {
+    document.querySelectorAll("section").forEach(sec => sec.classList.add("hidden"));
+    document.getElementById(id).classList.remove("hidden");
+    window.scrollTo(0,0);
 }
-
-/* AUDIO PLAY */
-function playAudio(id){ document.getElementById(id).play(); }
 </script>
 
 </body>
 </html>
-
